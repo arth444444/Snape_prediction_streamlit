@@ -1,0 +1,9 @@
+tensorflow
+keras
+haversine
+numpy
+pandas
+matplotlib
+joblib
+pymongo
+streamlit
