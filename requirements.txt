@@ -5,5 +5,5 @@ numpy
 pandas
 matplotlib
 joblib
-pymongo
+google-cloud-bigquery
 streamlit
