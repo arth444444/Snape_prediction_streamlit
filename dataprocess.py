@@ -60,18 +60,18 @@ hourly_demand_howrah = hourly_demand_howrah.rename(columns={'index': 'ds'})
 hourly_demand_howrah = hourly_demand_howrah.set_index('ds')
 
 
-########## DakshinDari ###########
-dataset_dakshindari['date'] = dataset_dakshindari['date_column'].dt.date
-dataset_dakshindari['hour'] = dataset_dakshindari['date_column'].dt.hour
-hourly_demand_dakshinDari = dataset_dakshindari.groupby(['date', 'hour']).size().reset_index(name='y')
-hourly_demand_dakshinDari['ds'] = hourly_demand_dakshinDari.apply(lambda row: datetime.combine(row['date'], datetime.min.time()) + timedelta(hours=row['hour']), axis=1)
-hourly_demand_dakshinDari = hourly_demand_dakshinDari.drop(columns=['date', 'hour'])
-hourly_demand_dakshinDari['ds'] = pd.to_datetime(hourly_demand_dakshinDari['ds'])
+########## laketown ###########
+dataset_laketown['date'] = dataset_laketown['date_column'].dt.date
+dataset_laketown['hour'] = dataset_laketown['date_column'].dt.hour
+hourly_demand_laketown = dataset_laketown.groupby(['date', 'hour']).size().reset_index(name='y')
+hourly_demand_laketown['ds'] = hourly_demand_laketown.apply(lambda row: datetime.combine(row['date'], datetime.min.time()) + timedelta(hours=row['hour']), axis=1)
+hourly_demand_laketown = hourly_demand_laketown.drop(columns=['date', 'hour'])
+hourly_demand_laketown['ds'] = pd.to_datetime(hourly_demand_laketown['ds'])
 
-all_hours = pd.date_range(start=hourly_demand_dakshinDari['ds'].min(), end=hourly_demand_dakshinDari['ds'].max(), freq='H')
-hourly_demand_dakshinDari = hourly_demand_dakshinDari.set_index('ds').reindex(all_hours, fill_value=0).reset_index()
-hourly_demand_dakshinDari = hourly_demand_dakshinDari.rename(columns={'index': 'ds'})
-hourly_demand_dakshinDari = hourly_demand_dakshinDari.set_index('ds')
+all_hours = pd.date_range(start=hourly_demand_laketown['ds'].min(), end=hourly_demand_laketown['ds'].max(), freq='H')
+hourly_demand_laketown = hourly_demand_laketown.set_index('ds').reindex(all_hours, fill_value=0).reset_index()
+hourly_demand_laketown = hourly_demand_laketown.rename(columns={'index': 'ds'})
+hourly_demand_laketown = hourly_demand_laketown.set_index('ds')
 
 
 ########### Sector V ###########

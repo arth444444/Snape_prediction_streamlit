@@ -22,7 +22,7 @@ howrah='ZWL002488'
 sectorV='ZWL002931'
 airport='ZWL005435'
 rabindrasadan='ZWL005244'
-dakshindari='ZWL001499'
+laketown='ZWL001499'
 
 locality_weather_data = get_locality_weather_data(kolkata)
 
@@ -36,10 +36,10 @@ hourly_demand_rabindrasadan['temperature'] = locality_weather_data['locality_wea
 hourly_demand_rabindrasadan['rain_intensity'] = locality_weather_data['locality_weather_data']['rain_intensity']
 hourly_demand_rabindrasadan['rain_accumulation'] = locality_weather_data['locality_weather_data']['rain_accumulation']
 
-locality_weather_data= get_locality_weather_data(dakshindari)
-hourly_demand_dakshinDari['temperature'] = locality_weather_data['locality_weather_data']['temperature']
-hourly_demand_dakshinDari['rain_intensity'] = locality_weather_data['locality_weather_data']['rain_intensity']
-hourly_demand_dakshinDari['rain_accumulation'] = locality_weather_data['locality_weather_data']['rain_accumulation']
+locality_weather_data= get_locality_weather_data(laketown)
+hourly_demand_laketown['temperature'] = locality_weather_data['locality_weather_data']['temperature']
+hourly_demand_laketown['rain_intensity'] = locality_weather_data['locality_weather_data']['rain_intensity']
+hourly_demand_laketown['rain_accumulation'] = locality_weather_data['locality_weather_data']['rain_accumulation']
 
 locality_weather_data= get_locality_weather_data(airport)
 hourly_demand_airpot['temperature'] = locality_weather_data['locality_weather_data']['temperature']
@@ -59,14 +59,14 @@ hourly_demand_sectorV['rain_accumulation'] = locality_weather_data['locality_wea
 
 hourly_demand=hourly_demand[['y'	,'rain_intensity'	,'rain_accumulation'	,'temperature'	,'lag_1',	'lag_8',	'lag_12',	'lag_24']]
 hourly_demand_airpot=hourly_demand_airpot[['y'	,'rain_intensity'	,'rain_accumulation'	,'temperature'	,'lag_1',	'lag_8',	'lag_12',	'lag_24']]
-hourly_demand_dakshinDari=hourly_demand_dakshinDari[['y'	,'rain_intensity'	,'rain_accumulation'	,'temperature'	,'lag_1',	'lag_8',	'lag_12',	'lag_24']]
+hourly_demand_laketown=hourly_demand_laketown[['y'	,'rain_intensity'	,'rain_accumulation'	,'temperature'	,'lag_1',	'lag_8',	'lag_12',	'lag_24']]
 hourly_demand_howrah=hourly_demand_howrah[['y'	,'rain_intensity'	,'rain_accumulation'	,'temperature'	,'lag_1',	'lag_8',	'lag_12',	'lag_24']]
 hourly_demand_rabindrasadan=hourly_demand_rabindrasadan[['y'	,'rain_intensity'	,'rain_accumulation'	,'temperature'	,'lag_1',	'lag_8',	'lag_12',	'lag_24']]
 hourly_demand_sectorV=hourly_demand_sectorV[['y'	,'rain_intensity'	,'rain_accumulation'	,'temperature'	,'lag_1',	'lag_8',	'lag_12',	'lag_24']]
 
 
 print("city",hourly_demand)
-print("dakshindari",hourly_demand_dakshinDari)
+print("laketown",hourly_demand_laketown)
 print("airpor",hourly_demand_airpot)
 print('howrah',hourly_demand_howrah)
 print('rabindrasadan',hourly_demand_rabindrasadan)

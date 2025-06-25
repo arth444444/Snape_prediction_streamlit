@@ -23,14 +23,16 @@ def predict_demand_for_zone(zone, hourly_demand):
     y_pred_scaled = model.predict(new_sample_reshaped)
     y_pred = scaler_y.inverse_transform(y_pred_scaled)
 
-    return y_pred.flatten()[0]  # Return the predicted value as a scalar
+    predicted_value = y_pred.flatten()[0]  # Return the predicted value as a scalar
+    return max(0, predicted_value)  # Return 0 if prediction is negative
+    
 
 # Example usage:
-zones = ['airport', 'dakshindari', 'sectorV', 'victoria', 'howrah', 'kolkata_city']
+zones = ['airport', 'laketown', 'sectorV', 'victoria', 'howrah', 'kolkata_city']
 
 hourly_demand = {
     'airport': hourly_demand_airpot,
-    'dakshindari': hourly_demand_dakshinDari,
+    'laketown': hourly_demand_laketown,
     'sectorV': hourly_demand_sectorV,
     'victoria': hourly_demand_rabindrasadan,
     'howrah': hourly_demand_howrah,
@@ -91,13 +93,13 @@ def predict_demand_for_zone(zone, hourly_demand):
     print(f"Predicted value of y for {zone}:", y_pred)
 
 # Example usage:
-zones = ['airport', 'dakshindari', 'sectorV', 'victoria', 'howrah','kolkata_city']
+zones = ['airport', 'laketown', 'sectorV', 'victoria', 'howrah','kolkata_city']
 
 hourly_demand = {
     'airport': hourly_demand_airpot,
-    'dakshindari': hourly_demand_dakshinDari,
+    'laketown': hourly_demand_laketown,
     'sectorV': hourly_demand_sectorV,
-    'victoria': hourly_demand_dakshinDari,
+    'victoria': hourly_demand_laketown,
     'howrah': hourly_demand_howrah,
     'kolkata_city': hourly_demand
 }
