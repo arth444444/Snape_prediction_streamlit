@@ -1,9 +1,6 @@
 import streamlit as st
-import pandas as pd
-import numpy as np
-from model_predict import *
+from backend.model_predict import *
 import streamlit as st
-import pandas as pd
 
 def main():
     '''# Execute your series of scripts
@@ -23,9 +20,6 @@ def main():
         with cols[i]:
             st.button(str(value), key=f"btn_{region}")
             st.write(region) 
-
-if __name__ == "__main__":
-    main()
 
 
 
