@@ -1,6 +1,6 @@
 import streamlit as st
 from backend.model_predict import *
-import streamlit as st
+
 
 def main():
     '''# Execute your series of scripts
