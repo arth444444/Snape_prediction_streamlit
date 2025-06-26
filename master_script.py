@@ -5,7 +5,7 @@ import dataprocess
 import laggeddata
 import weatherunion_script
 import model_predict
-import app
+import main
 
 def main():
     Script_fetch_from_db.run()
@@ -15,7 +15,7 @@ def main():
     laggeddata.run()
     weatherunion_script.run()
     model_predict.run()
-    app.run()
+    main.run()
     
 
 if __name__ == "__main__":
