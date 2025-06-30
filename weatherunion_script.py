@@ -1,5 +1,5 @@
 import requests
-from backend.laggeddata import *
+from laggeddata import *
 
 API_KEY = "24b3227970223a36294433a167dc358b"
 BASE_URL = "https://www.weatherunion.com/gw/weather/external/v0"

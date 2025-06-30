@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 import pandas as pd
-from backend.process import *
+from process import *
 
 ########## Overall############
 dataset['date'] = dataset['date_column'].dt.date

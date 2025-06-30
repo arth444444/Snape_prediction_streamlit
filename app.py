@@ -1,5 +1,5 @@
 import streamlit as st
-from backend.model_predict import *
+from model_predict import *
 
 
 def main():
@@ -20,7 +20,8 @@ def main():
         with cols[i]:
             st.button(str(value), key=f"btn_{region}")
             st.write(region) 
-
+if __name__ == "__main__":
+    main()
 
 
 

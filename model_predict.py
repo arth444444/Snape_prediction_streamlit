@@ -1,4 +1,4 @@
-from backend.weatherunion_script import *
+from weatherunion_script import *
 import joblib
 from tensorflow.keras.models import load_model
 

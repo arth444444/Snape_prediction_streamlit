@@ -1,4 +1,4 @@
-from backend.Parse import deduped_data as dataset
+from Parse import deduped_data as dataset
 from haversine import haversine, Unit
 # Pickup lat long extraction
 dataset['pickup_latitude'] = dataset['latitude'].astype(float)

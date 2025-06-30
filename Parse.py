@@ -1,4 +1,4 @@
-from backend.Script_fetch_from_db import cursor_df as dataset
+from Script_fetch_from_db import cursor_df as dataset
 import pandas as pd
 #print("Available columns:", dataset.columns)
 
