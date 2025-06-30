@@ -6,4 +6,5 @@ pandas
 matplotlib
 joblib
 google-cloud-bigquery
+google-auth
 streamlit
