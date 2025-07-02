@@ -15,23 +15,18 @@ hourly_demand = hourly_demand.set_index('ds').reindex(all_hours, fill_value=0).r
 hourly_demand = hourly_demand.rename(columns={'index': 'ds'})
 hourly_demand = hourly_demand.set_index('ds')
 
-
 ############ Airport #########
 dataset_airport['date'] = dataset_airport['date_column'].dt.date
 dataset_airport['hour'] = dataset_airport['date_column'].dt.hour
 hourly_demand_airpot = dataset_airport.groupby(['date', 'hour']).size().reset_index(name='y')
-#hourly_demand_airpot['ds'] = hourly_demand_airpot.apply(lambda row: datetime.combine(row['date'], datetime.min.time()) + timedelta(hours=row['hour']), axis=1)
-hourly_demand_airpot['ds'] = hourly_demand_airpot.apply(lambda row: datetime.combine(row['date'], datetime.min.time()) + timedelta(hours=row['hour']), axis=1).apply(lambda x: x)
+hourly_demand_airpot['ds'] = hourly_demand_airpot.apply(lambda row: datetime.combine(row['date'], datetime.min.time()) + timedelta(hours=row['hour']), axis=1)
 hourly_demand_airpot = hourly_demand_airpot.drop(columns=['date', 'hour'])
 hourly_demand_airpot['ds'] = pd.to_datetime(hourly_demand_airpot['ds'])
-
-
 
 all_hours = pd.date_range(start=hourly_demand_airpot['ds'].min(), end=hourly_demand_airpot['ds'].max(), freq='H')
 hourly_demand_airpot = hourly_demand_airpot.set_index('ds').reindex(all_hours, fill_value=0).reset_index()
 hourly_demand_airpot = hourly_demand_airpot.rename(columns={'index': 'ds'})
-hourly_demand_airpot= hourly_demand_airpot.set_index('ds')
-
+hourly_demand_airpot = hourly_demand_airpot.set_index('ds')
 
 ########### Rabindrasadan ##########
 dataset_rabindrasadan['date'] = dataset_rabindrasadan['date_column'].dt.date
@@ -59,7 +54,6 @@ hourly_demand_howrah = hourly_demand_howrah.set_index('ds').reindex(all_hours, f
 hourly_demand_howrah = hourly_demand_howrah.rename(columns={'index': 'ds'})
 hourly_demand_howrah = hourly_demand_howrah.set_index('ds')
 
-
 ########## laketown ###########
 dataset_laketown['date'] = dataset_laketown['date_column'].dt.date
 dataset_laketown['hour'] = dataset_laketown['date_column'].dt.hour
@@ -72,7 +66,6 @@ all_hours = pd.date_range(start=hourly_demand_laketown['ds'].min(), end=hourly_d
 hourly_demand_laketown = hourly_demand_laketown.set_index('ds').reindex(all_hours, fill_value=0).reset_index()
 hourly_demand_laketown = hourly_demand_laketown.rename(columns={'index': 'ds'})
 hourly_demand_laketown = hourly_demand_laketown.set_index('ds')
-
 
 ########### Sector V ###########
 dataset_sectorV['date'] = dataset_sectorV['date_column'].dt.date
