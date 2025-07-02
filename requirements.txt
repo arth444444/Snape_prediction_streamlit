@@ -8,3 +8,5 @@ joblib
 google-cloud-bigquery
 streamlit
 scikit-learn
+pytz
+requests
