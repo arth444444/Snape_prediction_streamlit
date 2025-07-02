@@ -5,10 +5,16 @@ from tensorflow.keras.models import load_model
 # Function to predict demand for a given zone
 def predict_demand_for_zone(zone, hourly_demand):
     # Load the LSTM model
-    model = load_model(f'/Users/arthparashar/Downloads/Snape/City Heatmap/model/Scales and Models/lstm_{zone}.h5')
-    scaler_X = joblib.load(f'/Users/arthparashar/Downloads/Snape/City Heatmap/model/Scales and Models/scaler_x_{zone}.pkl')
-    scaler_y = joblib.load(f'/Users/arthparashar/Downloads/Snape/City Heatmap/model/Scales and Models/scaler_y_{zone}.pkl')
-    
+    # model = load_model(f'/Users/arthparashar/Downloads/Snape/City Heatmap/model/Scales and Models/lstm_{zone}.h5')
+    # scaler_X = joblib.load(f'/Users/arthparashar/Downloads/Snape/City Heatmap/model/Scales and Models/scaler_x_{zone}.pkl')
+    # scaler_y = joblib.load(f'/Users/arthparashar/Downloads/Snape/City Heatmap/model/Scales and Models/scaler_y_{zone}.pkl')
+
+    model = load_model(f'./models/lstm_{zone}.h5')
+
+    scaler_X = joblib.load(f'./models/scaler_x_{zone}.pkl')
+    scaler_y = joblib.load(f'./models/scaler_y_{zone}.pkl')
+
+
 
     # Extract hourly demand for the given zone
     hourly_demand_zone = hourly_demand[zone]
@@ -108,7 +114,3 @@ for zone in zones:
     predict_demand_for_zone(zone, hourly_demand)
 
 '''
-
-
-
-
